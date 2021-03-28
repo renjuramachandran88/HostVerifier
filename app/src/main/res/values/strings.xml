@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HostVerifier</string>
+    <string name="add_data">Verify</string>
+    <string name="clear_data">Clear Data</string>
+    <string name="no_data">No verified data to display at the moment.
+       Please click VERIFY button to add data. </string>
+</resources>

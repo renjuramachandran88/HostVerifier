@@ -1,0 +1,120 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion appConfig.compileSdk
+    buildToolsVersion appConfig.buildTools
+
+    defaultConfig {
+        applicationId "com.ml.hostverifier"
+
+        minSdkVersion appConfig.minSdk
+        targetSdkVersion appConfig.targetSdk
+
+        versionCode appConfig.versionCode
+        versionName appConfig.versionName
+
+        testInstrumentationRunner instrumentationConfig.testInstrumentationRunner
+
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+    }
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation(name:'verifier', ext:'aar')
+
+    implementation project(':data')
+    implementation project(':domain')
+
+
+    implementation libraries.kotlinStd
+    implementation libraries.androidSupportAppCompat
+    implementation libraries.androidSupportDesign
+    implementation libraries.recyclerView
+    implementation libraries.constraintLayout
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+    implementation libraries.retrofit
+    implementation libraries.retrofitGsonConverter
+    implementation libraries.rxKotlin
+    implementation libraries.rxAndroid
+    implementation libraries.rxBinding
+    implementation libraries.cardView
+    implementation libraries.glideImageApi
+    implementation libraries.pagination
+    implementation libraries.rxpagination
+    implementation libraries.mlkit
+    implementation libraries.room
+    implementation libraries.roomktx
+
+    implementation 'com.google.android.gms:play-services-base:17.6.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.apis:google-api-services-vision:v1-rev16-1.22.0'
+    implementation('com.google.api-client:google-api-client-android:1.22.0') {
+        exclude module: 'httpclient'
+    }
+    implementation('com.google.http-client:google-http-client-gson:1.20.0') {
+        exclude module: 'httpclient'
+    }
+
+    kapt compilers.dagger
+    kapt compilers.daggerAndroid
+    kapt libraries.glideImageCompiler
+    kapt compilers.room
+
+    androidTestImplementation instrumentationTestLibraries.espressoCore
+    androidTestImplementation instrumentationTestLibraries.espressoIntents
+    androidTestImplementation instrumentationTestLibraries.espressoContrib
+    androidTestImplementation instrumentationTestLibraries.espressoIntents
+    androidTestImplementation instrumentationTestLibraries.rxIdler
+
+    androidTestImplementation instrumentationTestLibraries.uiAutomator
+    androidTestImplementation instrumentationTestLibraries.testButler
+    androidTestImplementation instrumentationTestLibraries.testRunner
+    androidTestImplementation instrumentationTestLibraries.androidxTestExt
+    androidTestImplementation instrumentationTestLibraries.archCore
+    androidTestImplementation instrumentationTestLibraries.okhttpMockWebServer
+    androidTestImplementation instrumentationTestLibraries.rxIdler
+    testImplementation instrumentationTestLibraries.pagingtest
+    androidTestImplementation unitTestLibraries.assertj
+
+    androidTestImplementation unitTestLibraries.mockito
+    testImplementation unitTestLibraries.junit
+    testImplementation unitTestLibraries.mockito
+    testImplementation unitTestLibraries.assertj
+    testImplementation unitTestLibraries.coreTesting
+
+
+
+    testImplementation unitTestLibraries.junit
+    testImplementation unitTestLibraries.mockito
+    testImplementation unitTestLibraries.assertj
+
+    kaptAndroidTest compilers.dagger
+}
