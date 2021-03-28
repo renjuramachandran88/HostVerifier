@@ -35,8 +35,6 @@ dependencies {
 
     implementation libraries.rxKotlin
     implementation libraries.rxAndroid
-    implementation libraries.retrofit
-    implementation libraries.retrofitGsonConverter
     implementation libraries.dagger
     implementation libraries.daggerAndroid
     implementation libraries.room

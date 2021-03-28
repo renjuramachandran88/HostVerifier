@@ -60,15 +60,10 @@ dependencies {
     implementation libraries.constraintLayout
     implementation libraries.dagger
     implementation libraries.daggerAndroid
-    implementation libraries.retrofit
-    implementation libraries.retrofitGsonConverter
     implementation libraries.rxKotlin
     implementation libraries.rxAndroid
     implementation libraries.rxBinding
     implementation libraries.cardView
-    implementation libraries.glideImageApi
-    implementation libraries.pagination
-    implementation libraries.rxpagination
     implementation libraries.mlkit
     implementation libraries.room
     implementation libraries.roomktx
@@ -85,23 +80,18 @@ dependencies {
 
     kapt compilers.dagger
     kapt compilers.daggerAndroid
-    kapt libraries.glideImageCompiler
     kapt compilers.room
 
     androidTestImplementation instrumentationTestLibraries.espressoCore
     androidTestImplementation instrumentationTestLibraries.espressoIntents
     androidTestImplementation instrumentationTestLibraries.espressoContrib
     androidTestImplementation instrumentationTestLibraries.espressoIntents
-    androidTestImplementation instrumentationTestLibraries.rxIdler
 
     androidTestImplementation instrumentationTestLibraries.uiAutomator
     androidTestImplementation instrumentationTestLibraries.testButler
     androidTestImplementation instrumentationTestLibraries.testRunner
     androidTestImplementation instrumentationTestLibraries.androidxTestExt
     androidTestImplementation instrumentationTestLibraries.archCore
-    androidTestImplementation instrumentationTestLibraries.okhttpMockWebServer
-    androidTestImplementation instrumentationTestLibraries.rxIdler
-    testImplementation instrumentationTestLibraries.pagingtest
     androidTestImplementation unitTestLibraries.assertj
 
     androidTestImplementation unitTestLibraries.mockito
